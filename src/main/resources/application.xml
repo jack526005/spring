@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+<!--    class切换老师-->
+<bean name="teacher" class="scecond.ArtTeacher"/>
+<!--    autowire="byName" 自动装配-->
+    <bean name="student" class="first.Student"  autowire="byName" init-method="init" destroy-method="destroy">
+<!--        <property name="teacher" ref="teacher"/>-->
+        <property name="name" value="卢本伟"/>
+        <property name="list">
+            <list>
+                <value>AAA</value>
+                <value>BBB</value>
+                <value>CCC</value>
+            </list>
+        </property>
+    </bean>
+<bean name="art" class="first.ArtStudent"/>
+<alias name="art" alias="artStudent"/>
+<bean name="sport" class="first.SportStudent"/>
+</beans>
