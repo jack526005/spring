@@ -16,7 +16,14 @@
             </list>
         </property>
     </bean>
-<bean name="art" class="first.ArtStudent"/>
-<alias name="art" alias="artStudent"/>
-<bean name="sport" class="first.SportStudent"/>
+<bean name="artStudent" class="first.ArtStudent">
+    <property name="name" value="小明"/>
+    <property name="id" value="1"/>
+</bean>
+
+<alias name="artStudent" alias="artStudent"/>
+<!--    继承artStudent中的属性，重写id-->
+<bean name="sportStudent" class="first.SportStudent" parent="artStudent" >
+    <property name="id" value="2"/>
+</bean>
 </beans>
